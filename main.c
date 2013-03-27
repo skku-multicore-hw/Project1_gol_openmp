@@ -26,8 +26,6 @@ int main(int argc, char** argv){
 
 	fprintf(stderr,"Elapsed Time  : %ld(msec)\n",	1000*(result_time.tv_sec) + (result_time.tv_usec/1000));
 
-	printf("test");
-	printf("test2");
 
 	return 0;
 }
