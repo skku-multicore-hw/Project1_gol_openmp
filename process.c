@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <omp.h>
 #include "process.h"
 
 
@@ -27,7 +28,9 @@ int process_main(int* parameters, char**** cube);
 /* Generate 1 step */
 void vector_generate() {
 	int i, j, k;
-
+#pragma omp parallel
+{
+#pragma omp for schedule(auto)
 	for (i = 0; i < AXISZ; i++) {
 		for (j = 0; j < AXISY; j++) {
 			for (k = 0; k < AXISX; k++) {
@@ -35,6 +38,8 @@ void vector_generate() {
 			}
 		}
 	}
+}
+
 }
 
 
@@ -53,13 +58,13 @@ void pixel_judg(int i, int j, int k) {
 	if (k == AXISX-1) c_end--;
 
 
-		for (a = a_sta; a < a_end; a++) {
-			for (b = b_sta; b < b_end; b++) {
-				for (c = c_sta; c < c_end; c++) {
-					if (vector[even][i+a-1][j+b-1][k+c-1] == 1) n++;
-				}
+	for (a = a_sta; a < a_end; a++) {
+		for (b = b_sta; b < b_end; b++) {
+			for (c = c_sta; c < c_end; c++) {
+				if (vector[even][i+a-1][j+b-1][k+c-1] == 1) n++;
 			}
 		}
+	}
 
 	if (vector[even][i][j][k] == 1){			//judge live pixel
 		n--;
