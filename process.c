@@ -72,12 +72,16 @@ void pixel_judg(int i, int j, int k) {
 		n--;
 	//	printf("%d ",n);
 
+
 		if (n < D1 || n > D2) pixel_kill(i, j, k);
 		else pixel_live(i, j, k);
 	}
 
 	else if (vector[even][i][j][k] == 0){		//judge dead pixel
-	//	printf("(%d) ",n);
+
+		//printf("(%d) ",n);
+
+
 		if (n > L1 && n < L2) pixel_live(i, j, k);
 		else pixel_kill(i, j, k);
 	}
@@ -123,7 +127,9 @@ int process_main(int* parameters, char**** cube) {
 
 	for (i = 0; i < STEPS; i++){
 		vector_generate();
-	//	printf("\n STEPS = %d odd = %d even = %d \n",i+1,odd,even);
+
+		//printf("\n STEPS = %d odd = %d even = %d \n",i+1,odd,even);
+
 		if (odd) {
 			odd--;
 			even++;
