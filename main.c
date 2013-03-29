@@ -15,7 +15,7 @@ int main(int argc, char** argv){
 
 		return 1;
 	}
-	printf("Running game of life by Serialized Program \n");
+	printf("Running game of life by OpenMP version Program \n");
 
 	gettimeofday(&start_time, NULL);
 	game_of_life(argv[1]);
