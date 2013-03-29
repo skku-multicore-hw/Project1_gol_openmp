@@ -32,7 +32,9 @@ void vector_generate() {
 {
 #pragma omp for schedule(auto)
 	for (i = 0; i < AXISZ; i++) {
+#pragma omp for schedule(auto)
 		for (j = 0; j < AXISY; j++) {
+#pragma omp for schedule(auto)
 			for (k = 0; k < AXISX; k++) {
 				pixel_judg(i,j,k);
 			}
