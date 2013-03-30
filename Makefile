@@ -4,7 +4,7 @@ RM		= rm
 FLAGS  = -fopenmp
 
 CSRCS	= main.c game_of_life.c process.c
-TARGET	= game_of_life_serial
+TARGET	= game_of_life_openmp
 OBJECTS	= $(CSRCS:.c=.o)
 
 all: $(TARGET)
