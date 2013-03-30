@@ -30,11 +30,9 @@ void vector_generate() {
 	int i, j, k;
 #pragma omp parallel
 {
-#pragma omp for
+#pragma omp for private(j,k)
 	for (i = 0; i < AXISZ; i++) {
-
 		for (j = 0; j < AXISY; j++) {
-
 			for (k = 0; k < AXISX; k++) {
 				pixel_judg(i,j,k);
 			}
